@@ -1,0 +1,9 @@
+extends common/page
+
+block header
+    img.logo(src='images/EBC-logo.png' alt='Burgerholics Logo')
+
+block contents
+    div.full
+        div.carousel(data-slick='{"slidesToShow": 4, "slidesToScroll": 4')
+    a.btn.btn-primary.submitBurgerLink.expandButton(href='/submit-burger') Submit Burger

@@ -1,0 +1,76 @@
+extends common/page
+
+block contents
+    div.viewBurger
+        div.viewContent
+            div.row
+                div.title
+                    button.edit.btn.btn-primary.pull-right Edit
+                    span.points.pull-right.hidden
+                div.col-6.tableExtend-12
+                    div.row
+                        strong.col-3 Member
+                        span.col-9.member
+                    div.row
+                        strong.col-3 Burger Name
+                        span.col-9.burgerName
+                    div.row
+                        strong.col-3 Place
+                        span.col-9.restaurant
+                    div.row.tableRemove
+                        strong.col-3 Address
+                        span.col-9.location
+                    div.row.tableRemove
+                        strong.col-3 Distance
+                        span.col-9.distance
+                    div.row
+                        div.description.col-12
+                div.col-6.tableExtend-12
+                    img.clickable-image.viewPhoto(alt='Burger Image')
+        div.editContent.hidden
+            form.submitBurgerForm(action='/burgers' method='post' enctype='multipart/form-data').scrollable
+                div.form-group
+                    label(for='member') Member
+                    select.form-control#memberInput(name='member' required autofocus)
+                        each member in config.members
+                            option(value=member.name)=member.name
+                div.form-group
+                    label(for='burgerName') Burger Name
+                    input.form-control#burgerNameInput(type='text' name='name' required placeholder='Name of the burger')
+                div.form-group
+                    label(for='description') Description
+                    textarea.form-control#descriptionInput(rows='2' name='description' placeholder='Brief description of the burger')
+                div.form-group
+                    label(for='restaurant') Place
+                    input.form-control#restaurantInput(type='text' name='restaurant' placeholder='Location you ate' list='restaurant-list')
+                    datalist#restaurant-list
+                        select
+                div.form-group.row.photo-options
+                    div.col-4
+                        label.photoUpload.btn.btn-default(for='photo')
+                            i.material-icons add_a_photo
+                        input.form-control#photo(type='file' name='photo')
+                    div.form-check.no-photo-toggle.col-8
+                        input.form-control#photoToggle(type='checkbox' name='photoToggle')
+                        label.form-check-label.pull-right(for='photoToggle')
+                            span No Photo
+                            span.photoToggleCheckbox.btn.btn-default
+                                i.material-icons.photoToggleIcon.hidden check
+                div.form-group.row.photo-display-group.relative.hidden
+                    i.material-icons.cancelPhoto(data-toggle='tooltip' data-placement='left' title='Close') close
+                    div.flex.col-12
+                        img.photo-display
+                div.form-group.hidden.photo-toggle-content.photo-toggle-date
+                    label(for='date') Date
+                    input.form-control#dateInput(type='date' name='date' required)
+                div.form-group.hidden.photo-toggle-content.photo-toggle-country
+                    label(for='country') Country
+                    select.form-control#countryInput(name='country')
+                        each country in params.countries
+                            option(value=country)=country
+                div.form-group.hidden.photo-toggle-content.photo-toggle-address
+                    label.address-label(for='location') Address
+                    input.form-control#locationInput(type='text' name='location')
+                div
+                    button.saveEditButton.btn.btn-primary Save
+                    button.cancelEditButton.btn.btn-default Cancel

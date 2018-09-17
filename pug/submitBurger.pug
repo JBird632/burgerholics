@@ -1,0 +1,53 @@
+extends common/page
+
+block contents
+    form.submitBurgerForm(action='/burgers' method='post' enctype='multipart/form-data').scrollable
+        div.form-group
+            label(for='member') Member
+            select.form-control#member(name='member' required autofocus)
+                option(value='' selected disabled hidden) Select Member
+                each member in config.members
+                    option(value=member.name)=member.name
+        div.form-group
+            label(for='burgerName') Burger Name
+            input.form-control#burgerName(type='text' name='name' required placeholder='Name of the burger')
+        div.form-group
+            label(for='description') Description
+            textarea.form-control#description(rows='2' name='description' placeholder='Brief description of the burger')
+        div.form-group
+            label(for='restaurant') Place
+            input.form-control#restaurant(type='text' name='restaurant' placeholder='Location you ate' list='restaurant-list')
+            datalist#restaurant-list
+                select
+        div.form-group.row.photo-options
+            div.col-4
+                label.photoUpload.btn.btn-default(for='photo')
+                    i.material-icons add_a_photo
+                input.form-control#photo(type='file' name='photo')
+            div.form-check.no-photo-toggle.col-8
+                input.form-control#photoToggle(type='checkbox' name='photoToggle')
+                label.form-check-label.pull-right(for='photoToggle')
+                    span No Photo
+                    span.photoToggleCheckbox.btn.btn-default
+                        i.material-icons.photoToggleIcon.hidden check
+        div.form-group.row.photo-display-group.relative.hidden
+            i.material-icons.cancelPhoto(data-toggle='tooltip' data-placement='left' title='Close') close
+            div.flex.col-12
+                img.photo-display
+        div.form-group.hidden.photo-toggle-content.photo-toggle-date
+            label(for='date') Date
+            input.form-control#date(type='date' name='date' required)
+        div.form-group.hidden.photo-toggle-content.photo-toggle-country
+            label(for='country') Country
+            select.form-control#country(name='country')
+                each country in params.countries
+                    if (country=='Canada')
+                        option(value=country selected)=country
+                    else
+                        option(value=country)=country
+        div.form-group.hidden.photo-toggle-content.photo-toggle-address
+            label.address-label(for='location') Address
+            input.form-control#location(type='text' name='location')
+        div
+            button.submitBurgerButton.btn.btn-primary Submit
+            button.cancelBurgerButton.btn.btn-default Cancel

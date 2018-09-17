@@ -1,0 +1,38 @@
+extends common/page
+
+block contents
+    div.review
+        div.reviewContent
+            div.row
+                div.col-6.tableExtend-12
+                    div.row
+                        strong.col-3 Member
+                        span.col-9.member
+                    div.row
+                        strong.col-3 Burger Name
+                        span.col-9.burgerName
+                    div.row
+                        strong.col-3 Location
+                        span.col-9.restaurant
+                    div.row.tableRemove
+                        strong.col-3 Address
+                        span.col-9.location
+                    div.row.tableRemove
+                        strong.col-3 Distance
+                        span.col-9.distance
+                    div.row
+                        div.description.col-12
+                div.col-6.tableExtend-12
+                    img.clickable-image.reviewPhoto(alt='Review Image')
+        hr
+        form.reviewRating
+            div.form-group
+                label(for='comment') Comment
+                textarea.form-control#comment(name='comment')
+            div.form-group
+                label(for='rating') Rating
+                input.selectable#ratingValue(type='number' min='0' max='100' value='0' name='ratingValue')
+                input.form-control#rating(type='range' min='0' max='100' value='0' name='rating')
+            div
+                button.submitRatingButton.btn.btn-primary(type='submit') Submit
+                button.cancelRatingButton.btn.btn-default Cancel

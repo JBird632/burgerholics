@@ -1,0 +1,20 @@
+extends common/page
+
+block contents
+    div.col-12
+        h5 Furthest Burgers
+        p Displayed are each member's furthest burger they have eaten.
+    div.col-12.center
+        img.map.hidden(src='images/map.jpg' alt='Far Away Map')
+        canvas.map
+    hr
+    div.col-12
+        div.row
+            div.col-2
+            div.col-3.tableExtend-6
+                strong Member
+            div.col-3.tableRemove
+                strong Location
+            div.col-4.center
+                strong Distance
+        div.faraway-body

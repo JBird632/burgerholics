@@ -1,0 +1,56 @@
+{
+	"members": [
+		{
+			"name": "Aleks",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Andrei",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Clint",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Devlan",
+			"location": "Toronto"
+		},
+		{
+			"name": "Frank",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Gilbert",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Hugh",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Jay",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Katherine",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Lee Ann",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Rod",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Vee",
+			"location": "Vancouver"
+		},
+		{
+			"name": "Yalda",
+			"location": "Vancouver"
+		}
+	]
+}

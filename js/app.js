@@ -34,7 +34,8 @@ var _firebase2 = _interopRequireDefault(_firebase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var port = process.env.PORT || 3000;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var ipAddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var config = JSON.parse(_fs2.default.readFileSync(_path2.default.join(__dirname, '../config.json'), 'utf8'));
 var app = (0, _express2.default)();
 app.set('view engine', 'pug');
@@ -72,6 +73,6 @@ controller.registerGet('/thanks-reviewing', { template: 'thanks', title: 'Thanks
 controller.registerGet('/hall-of-fame', { template: 'hallOfFame', title: 'Hall of Fame' });
 
 new _burgerController2.default({ app: app, config: config, database: database });
-app.listen(port, function () {
+app.listen(port, ipAddress, function () {
     return console.log('Server: Listening on port ' + port);
 });
